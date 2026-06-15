@@ -1,0 +1,1228 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Guillian Javier | Full Stack Developer</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Outfit:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Bootstrap Icons -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+
+    <!-- Minimal Custom CSS -->
+    <style>
+      :root {
+        --bs-body-bg: #0d0f14;
+        --bs-body-color: #eae8e2;
+        --bs-primary: #c9a96e;
+        --bs-primary-rgb: 201, 169, 110;
+        --bs-secondary-color: #9a98a8;
+        --surface: #13161e;
+        --surface-2: #1a1e28;
+        --border-soft: rgba(255, 255, 255, 0.08);
+        --accent-hover: #e8c99a;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: "Outfit", sans-serif;
+        font-weight: 300;
+        padding-top: 72px;
+        overflow-x: hidden;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      .navbar-brand,
+      .serif {
+        font-family: "Playfair Display", serif;
+      }
+
+      div {
+        scroll-margin-top: 80px;
+      }
+
+      .bg-surface {
+        background-color: var(--surface);
+      }
+      .bg-surface-2 {
+        background-color: var(--surface-2);
+      }
+      .border-soft {
+        border-color: var(--border-soft) !important;
+      }
+      .text-gold {
+        color: var(--bs-primary) !important;
+      }
+      .text-muted-custom {
+        color: var(--bs-secondary-color) !important;
+      }
+
+      .navbar {
+        background: rgba(13, 15, 20, 0.9);
+        backdrop-filter: blur(12px);
+      }
+
+      .btn-gold {
+        --bs-btn-bg: #c9a96e;
+        --bs-btn-border-color: #c9a96e;
+        --bs-btn-color: #0d0f14;
+        --bs-btn-hover-bg: #e8c99a;
+        --bs-btn-hover-border-color: #e8c99a;
+        --bs-btn-hover-color: #0d0f14;
+        font-weight: 600;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .btn-outline-gold {
+        --bs-btn-color: #eae8e2;
+        --bs-btn-border-color: rgba(255, 255, 255, 0.14);
+        --bs-btn-hover-color: #c9a96e;
+        --bs-btn-hover-bg: transparent;
+        --bs-btn-hover-border-color: #c9a96e;
+        font-weight: 500;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .letter-space {
+        letter-spacing: 0.14em;
+      }
+
+      .hero-title {
+        font-size: clamp(2.8rem, 6vw, 4.5rem);
+        line-height: 1.05;
+      }
+
+      .card-dark {
+        background-color: var(--surface);
+        border: 1px solid var(--border-soft);
+        color: var(--bs-body-color);
+      }
+
+      .card-dark-2 {
+        background-color: var(--surface-2);
+        border: 1px solid var(--border-soft);
+        color: var(--bs-body-color);
+      }
+
+      .form-control {
+        background-color: var(--surface);
+        border-color: var(--border-soft);
+        color: var(--bs-body-color);
+      }
+
+      .form-control:focus {
+        background-color: var(--surface);
+        color: var(--bs-body-color);
+        border-color: var(--bs-primary);
+        box-shadow: 0 0 0 0.25rem rgba(var(--bs-primary-rgb), 0.15);
+      }
+
+      .form-control::placeholder {
+        color: #777783;
+      }
+
+      .hover-lift {
+        transition: transform 0.2s ease, border-color 0.2s ease;
+      }
+      .hover-lift:hover {
+        transform: translateY(-4px);
+        border-color: rgba(var(--bs-primary-rgb), 0.45) !important;
+      }
+
+      .fade-up {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.6s ease, transform 0.6s ease;
+      }
+
+      .fade-up.visible {
+        opacity: 1;
+        transform: none;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- NAVBAR -->
+    <nav
+      class="navbar navbar-expand-lg navbar-dark fixed-top border-bottom border-soft"
+    >
+      <div class="container py-2">
+        <a class="navbar-brand fs-4" href="#home"
+          >Guillian <span class="text-gold">Javier</span></a
+        >
+
+        <button
+          class="navbar-toggler border-soft"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#mainNavbar"
+          aria-controls="mainNavbar"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="mainNavbar">
+          <ul
+            class="navbar-nav ms-auto gap-lg-3 text-uppercase small letter-space"
+          >
+            <li class="nav-item">
+              <a class="nav-link" href="#about">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#skills">Skills</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#projects">Projects</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#education">Education</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#experience">Experience</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#contact">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- HERO -->
+    <header id="home" class="min-vh-100 d-flex align-items-center py-5">
+      <div class="container py-5">
+        <div class="row align-items-center g-5">
+          <div class="col-lg-6">
+            <p
+              class="text-gold text-uppercase fw-semibold small letter-space mb-3"
+            >
+              Personal Portfolio
+            </p>
+            <h1 class="hero-title fw-bold mb-3">
+              Hi, I'm <em class="text-gold">Guillian</em><br />Javier
+            </h1>
+            <p
+              class="text-muted-custom text-uppercase small letter-space fw-medium mb-3"
+            >
+              BSIT Student &amp; Aspiring Full Stack Developer
+            </p>
+            <p class="text-muted-custom fs-6 mb-4" style="max-width: 440px">
+              Building clean, responsive, and user-friendly websites using HTML,
+              Bootstrap, CSS, and JavaScript.
+            </p>
+            <div class="d-flex flex-wrap gap-3">
+              <a href="#projects" class="btn btn-gold rounded-0 px-4 py-3 small"
+                >View Projects</a
+              >
+              <a
+                href="#contact"
+                class="btn btn-outline-gold rounded-0 px-4 py-3 small"
+                >Contact Me</a
+              >
+            </div>
+          </div>
+
+          <div class="col-lg-5 ms-lg-auto">
+            <div class="card card-dark rounded-0 shadow-lg fade-up">
+              <div class="card-body p-4 p-md-5">
+                <div class="d-flex align-items-center gap-4 mb-4">
+                  <!-- Photo -->
+                  <div class="flex-shrink-0">
+                    <div
+                      class="border border-2 border-primary overflow-hidden"
+                      style="width: 150px; height: 150px; border-radius: 50%"
+                    >
+                      <img
+                        src="assets/JAVIER, GUILLIAN ANN.jpg"
+                        alt="Guillian Javier"
+                        class="w-100 h-100 object-fit-cover"
+                        style="object-position: center top"
+                      />
+                    </div>
+                  </div>
+                  <!-- Name & Role -->
+                  <div>
+                    <h2 class="serif fs-3 mb-1">Guillian Javier</h2>
+                    <p class="text-gold text-uppercase small letter-space mb-0">
+                      Aspiring Full Stack Developer
+                    </p>
+                  </div>
+                </div>
+
+                <div class="row g-2 mb-4">
+                  <div class="col-6">
+                    <div
+                      class="bg-surface-2 border-start border-primary border-3 p-3 h-100"
+                    >
+                      <p class="serif fs-3 text-gold lh-1 mb-1">7</p>
+                      <p
+                        class="text-muted-custom text-uppercase small letter-space mb-0"
+                      >
+                        Skills
+                      </p>
+                    </div>
+                  </div>
+                  <div class="col-6">
+                    <div
+                      class="bg-surface-2 border-start border-primary border-3 p-3 h-100"
+                    >
+                      <p class="serif fs-3 text-gold lh-1 mb-1">6</p>
+                      <p
+                        class="text-muted-custom text-uppercase small letter-space mb-0"
+                      >
+                        Projects
+                      </p>
+                    </div>
+                  </div>
+                  <div class="col-6">
+                    <div
+                      class="bg-surface-2 border-start border-primary border-3 p-3 h-100"
+                    >
+                      <p class="serif fs-3 text-gold lh-1 mb-1">1+</p>
+                      <p
+                        class="text-muted-custom text-uppercase small letter-space mb-0"
+                      >
+                        Year Study
+                      </p>
+                    </div>
+                  </div>
+                  <div class="col-6">
+                    <div
+                      class="bg-surface-2 border-start border-primary border-3 p-3 h-100"
+                    >
+                      <p class="serif fs-3 text-gold lh-1 mb-1">PH</p>
+                      <p
+                        class="text-muted-custom text-uppercase small letter-space mb-0"
+                      >
+                        Location
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="d-flex gap-2">
+                  <a href="#" class="btn btn-outline-gold rounded-0"
+                    ><i class="bi bi-github"></i
+                  ></a>
+                  <a href="#" class="btn btn-outline-gold rounded-0"
+                    ><i class="bi bi-linkedin"></i
+                  ></a>
+                  <a href="#" class="btn btn-outline-gold rounded-0"
+                    ><i class="bi bi-facebook"></i
+                  ></a>
+                  <a href="#" class="btn btn-outline-gold rounded-0"
+                    ><i class="bi bi-envelope"></i
+                  ></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- ABOUT -->
+    <div id="about" class="bg-surface py-5">
+      <div class="container py-5">
+        <div class="row align-items-center g-5">
+          <div class="col-lg-6">
+            <p
+              class="text-gold text-uppercase small fw-semibold letter-space mb-2"
+            >
+              About
+            </p>
+            <h2 class="display-6 fw-bold mb-4">About Me</h2>
+            <p class="text-muted-custom mb-4">
+              I am currently studying Web development, working to sharpen my
+              skills in building structured, visually appealing, and fully
+              responsive websites. This portfolio reflects my learning journey
+              and the projects I've built along the way.
+            </p>
+
+            <div class="row g-3">
+              <div class="col-sm-6">
+                <div class="card card-dark-2 rounded-0 h-100">
+                  <div class="card-body p-3">
+                    <p
+                      class="text-muted-custom text-uppercase small letter-space mb-1"
+                    >
+                      Name
+                    </p>
+                    <p class="mb-0">Guillian Javier</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="card card-dark-2 rounded-0 h-100">
+                  <div class="card-body p-3">
+                    <p
+                      class="text-muted-custom text-uppercase small letter-space mb-1"
+                    >
+                      Role
+                    </p>
+                    <p class="mb-0">Web Design Student</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="card card-dark-2 rounded-0 h-100">
+                  <div class="card-body p-3">
+                    <p
+                      class="text-muted-custom text-uppercase small letter-space mb-1"
+                    >
+                      Focus
+                    </p>
+                    <p class="mb-0">Web Development</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="card card-dark-2 rounded-0 h-100">
+                  <div class="card-body p-3">
+                    <p
+                      class="text-muted-custom text-uppercase small letter-space mb-1"
+                    >
+                      Location
+                    </p>
+                    <p class="mb-0">Philippines</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-5 ms-lg-auto">
+            <div class="card card-dark-2 rounded-0 border-soft fade-up">
+              <div class="card-body p-4 p-md-5">
+                <p class="serif fst-italic fs-4 mb-4">
+                  “I enjoy designing websites that are
+                  <span class="text-gold">simple, elegant,</span> and easy to
+                  use.”
+                </p>
+                <ul class="list-group list-group-flush">
+                  <li
+                    class="list-group-item bg-transparent text-muted-custom border-soft px-0"
+                  >
+                    <i class="bi bi-arrow-right text-gold me-2"></i>Responsive
+                    web design
+                  </li>
+                  <li
+                    class="list-group-item bg-transparent text-muted-custom border-soft px-0"
+                  >
+                    <i class="bi bi-arrow-right text-gold me-2"></i>Clean,
+                    semantic HTML structure
+                  </li>
+                  <li
+                    class="list-group-item bg-transparent text-muted-custom border-soft px-0"
+                  >
+                    <i class="bi bi-arrow-right text-gold me-2"></i
+                    >Component-based layouts with Bootstrap
+                  </li>
+                  <li
+                    class="list-group-item bg-transparent text-muted-custom border-soft px-0"
+                  >
+                    <i class="bi bi-arrow-right text-gold me-2"></i>Interactive
+                    UI with JavaScript
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SKILLS -->
+    <div id="skills" class="py-5">
+      <div class="container py-5">
+        <div class="mb-5">
+          <p
+            class="text-gold text-uppercase small fw-semibold letter-space mb-2"
+          >
+            Skills
+          </p>
+          <h2 class="display-6 fw-bold">My Skills</h2>
+        </div>
+
+        <div class="row g-3">
+          <div class="col-sm-6 col-lg-3">
+            <div class="card card-dark rounded-0 h-100 hover-lift fade-up">
+              <div class="card-body p-4">
+                <i class="bi bi-filetype-html fs-1 text-gold"></i>
+                <h3 class="serif fs-4 mt-3">HTML5</h3>
+                <p class="text-muted-custom small mb-0">
+                  Building well-structured, semantic web pages and layouts.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-3">
+            <div class="card card-dark rounded-0 h-100 hover-lift fade-up">
+              <div class="card-body p-4">
+                <i class="bi bi-filetype-css fs-1 text-gold"></i>
+                <h3 class="serif fs-4 mt-3">CSS3</h3>
+                <p class="text-muted-custom small mb-0">
+                  Styling, animations, and custom responsive layouts.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-3">
+            <div class="card card-dark rounded-0 h-100 hover-lift fade-up">
+              <div class="card-body p-4">
+                <i class="bi bi-bootstrap fs-1 text-gold"></i>
+                <h3 class="serif fs-4 mt-3">Bootstrap</h3>
+                <p class="text-muted-custom small mb-0">
+                  Fast, responsive UI design with a component framework.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-3">
+            <div class="card card-dark rounded-0 h-100 hover-lift fade-up">
+              <div class="card-body p-4">
+                <i class="bi bi-filetype-js fs-1 text-gold"></i>
+                <h3 class="serif fs-4 mt-3">JavaScript</h3>
+                <p class="text-muted-custom small mb-0">
+                  Adding interactivity and dynamic behavior to web pages.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-3">
+            <div class="card card-dark rounded-0 h-100 hover-lift fade-up">
+              <div class="card-body p-4">
+                <i class="bi bi-database fs-1 text-gold"></i>
+                <h3 class="serif fs-4 mt-3">MySQL</h3>
+                <p class="text-muted-custom small mb-0">
+                  Designing, managing, and querying relational databases.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-3">
+            <div class="card card-dark rounded-0 h-100 hover-lift fade-up">
+              <div class="card-body p-4">
+                <i class="bi bi-code-square fs-1 text-gold"></i>
+                <h3 class="serif fs-4 mt-3">Python</h3>
+                <p class="text-muted-custom small mb-0">
+                  Developing programs, scripts, and logic-driven applications.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-3">
+            <div class="card card-dark rounded-0 h-100 hover-lift fade-up">
+              <div class="card-body p-4">
+                <i class="bi bi-filetype-php fs-1 text-gold"></i>
+                <h3 class="serif fs-4 mt-3">PHP</h3>
+                <p class="text-muted-custom small mb-0">
+                  Building dynamic server-side features and database-driven websites.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PROJECTS -->
+    <div id="projects" class="bg-surface py-5">
+      <div class="container py-5">
+        <div class="mb-5">
+          <p
+            class="text-gold text-uppercase small fw-semibold letter-space mb-2"
+          >
+            Projects
+          </p>
+          <h2 class="display-6 fw-bold">My Projects</h2>
+        </div>
+
+        <div class="row g-4">
+          <div class="col-md-6 col-lg-4">
+            <div class="card card-dark rounded-0 h-100 hover-lift fade-up">
+              <div
+                class="bg-surface-2 text-center py-5 border-bottom border-soft"
+              >
+                <i class="bi bi-airplane display-3 text-gold opacity-50"></i>
+              </div>
+              <div class="card-body p-4">
+                <h3 class="serif fs-4">Aurea Airways</h3>
+                <p class="text-muted-custom small">
+                  A travel booking website mockup with package details, booking
+                  forms, and checkout page.
+                </p>
+                <div class="d-flex flex-wrap gap-2 mb-3">
+                  <span
+                    class="badge rounded-0 text-bg-dark border border-soft text-gold"
+                    >HTML</span
+                  >
+                  <span
+                    class="badge rounded-0 text-bg-dark border border-soft text-gold"
+                    >Bootstrap</span
+                  >
+                  <span
+                    class="badge rounded-0 text-bg-dark border border-soft text-gold"
+                    >CSS</span
+                  >
+                </div>
+                <a
+                  href="#"
+                  class="link-warning link-offset-2 text-uppercase small letter-space text-decoration-none"
+                  >View <i class="bi bi-arrow-up-right"></i
+                ></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4">
+            <div class="card card-dark rounded-0 h-100 hover-lift fade-up">
+              <div
+                class="bg-surface-2 text-center py-5 border-bottom border-soft"
+              >
+                <i class="bi bi-person-hearts display-3 text-gold opacity-50"></i>
+              </div>
+              <div class="card-body p-4">
+                <h3 class="serif fs-4">APO</h3>
+                <p class="text-muted-custom small">
+                  An elder-care application designed to support seniors through
+                  an AI chatbot, schedule reminders, and helpful daily assistance
+                  features.
+                </p>
+                <div class="d-flex flex-wrap gap-2 mb-3">
+                  <span
+                    class="badge rounded-0 text-bg-dark border border-soft text-gold"
+                    >Elder Care</span
+                  >
+                  <span
+                    class="badge rounded-0 text-bg-dark border border-soft text-gold"
+                    >AI Chatbot</span
+                  >
+                  <span
+                    class="badge rounded-0 text-bg-dark border border-soft text-gold"
+                    >Reminders</span
+                  >
+                </div>
+                <a
+                  href="#"
+                  class="link-warning link-offset-2 text-uppercase small letter-space text-decoration-none"
+                  >View <i class="bi bi-arrow-up-right"></i
+                ></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4">
+            <div class="card card-dark rounded-0 h-100 hover-lift fade-up">
+              <div
+                class="bg-surface-2 text-center py-5 border-bottom border-soft"
+              >
+                <i class="bi bi-book-fill display-3 text-gold opacity-50"></i>
+              </div>
+              <div class="card-body p-4">
+                <h3 class="serif fs-4">Nook PH</h3>
+                <p class="text-muted-custom small">
+                  An e-commerce book shop concept with product categories, cart,
+                  checkout, and order history.
+                </p>
+                <div class="d-flex flex-wrap gap-2 mb-3">
+                  <span
+                    class="badge rounded-0 text-bg-dark border border-soft text-gold"
+                    >HTML</span
+                  >
+                  <span
+                    class="badge rounded-0 text-bg-dark border border-soft text-gold"
+                    >Bootstrap</span
+                  >
+                  <span
+                    class="badge rounded-0 text-bg-dark border border-soft text-gold"
+                    >JS</span
+                  >
+                </div>
+                <a
+                  href="#"
+                  class="link-warning link-offset-2 text-uppercase small letter-space text-decoration-none"
+                  >View <i class="bi bi-arrow-up-right"></i
+                ></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4">
+            <div class="card card-dark rounded-0 h-100 hover-lift fade-up">
+              <div
+                class="bg-surface-2 text-center py-5 border-bottom border-soft"
+              >
+                <i
+                  class="bi bi-journal-richtext display-3 text-gold opacity-50"
+                ></i>
+              </div>
+              <div class="card-body p-4">
+                <h3 class="serif fs-4">Reading Platform UI</h3>
+                <p class="text-muted-custom small">
+                  A web interface for reading novels with chapter browsing and
+                  story detail pages.
+                </p>
+                <div class="d-flex flex-wrap gap-2 mb-3">
+                  <span
+                    class="badge rounded-0 text-bg-dark border border-soft text-gold"
+                    >UI</span
+                  >
+                  <span
+                    class="badge rounded-0 text-bg-dark border border-soft text-gold"
+                    >Bootstrap</span
+                  >
+                  <span
+                    class="badge rounded-0 text-bg-dark border border-soft text-gold"
+                    >Responsive</span
+                  >
+                </div>
+                <a
+                  href="#"
+                  class="link-warning link-offset-2 text-uppercase small letter-space text-decoration-none"
+                  >View <i class="bi bi-arrow-up-right"></i
+                ></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4">
+            <div class="card card-dark rounded-0 h-100 hover-lift fade-up">
+              <div
+                class="bg-surface-2 text-center py-5 border-bottom border-soft"
+              >
+                <i class="bi bi-heart-pulse-fill display-3 text-gold opacity-50"></i>
+              </div>
+              <div class="card-body p-4">
+                <h3 class="serif fs-4">Exercise Application</h3>
+                <p class="text-muted-custom small">
+                  A Python-based exercise application designed to guide users
+                  through workout activities and support a more active lifestyle.
+                </p>
+                <div class="d-flex flex-wrap gap-2 mb-3">
+                  <span
+                    class="badge rounded-0 text-bg-dark border border-soft text-gold"
+                    >Python</span
+                  >
+                  <span
+                    class="badge rounded-0 text-bg-dark border border-soft text-gold"
+                    >Application</span
+                  >
+                  <span
+                    class="badge rounded-0 text-bg-dark border border-soft text-gold"
+                    >Fitness</span
+                  >
+                </div>
+                <a
+                  href="#"
+                  class="link-warning link-offset-2 text-uppercase small letter-space text-decoration-none"
+                  >View <i class="bi bi-arrow-up-right"></i
+                ></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4">
+            <div class="card card-dark rounded-0 h-100 hover-lift fade-up">
+              <div
+                class="bg-surface-2 text-center py-5 border-bottom border-soft"
+              >
+                <i class="bi bi-controller display-3 text-gold opacity-50"></i>
+              </div>
+              <div class="card-body p-4">
+                <h3 class="serif fs-4">MikuMikuBeam</h3>
+                <p class="text-muted-custom small">
+                  A Python game development project featuring interactive
+                  gameplay, player controls, scoring, and game mechanics.
+                </p>
+                <div class="d-flex flex-wrap gap-2 mb-3">
+                  <span
+                    class="badge rounded-0 text-bg-dark border border-soft text-gold"
+                    >Python</span
+                  >
+                  <span
+                    class="badge rounded-0 text-bg-dark border border-soft text-gold"
+                    >Pygame</span
+                  >
+                  <span
+                    class="badge rounded-0 text-bg-dark border border-soft text-gold"
+                    >Game Development</span
+                  >
+                </div>
+                <a
+                  href="#"
+                  class="link-warning link-offset-2 text-uppercase small letter-space text-decoration-none"
+                  >View <i class="bi bi-arrow-up-right"></i
+                ></a>
+              </div>
+            </div>
+          </div>
+
+
+        </div>
+      </div>
+    </div>
+
+    <!-- EDUCATION -->
+    <div id="education" class="py-5">
+      <div class="container py-5">
+        <div class="mb-5">
+          <p
+            class="text-gold text-uppercase small fw-semibold letter-space mb-2"
+          >
+            Education
+          </p>
+          <h2 class="display-6 fw-bold">Academic Background</h2>
+        </div>
+
+        <!-- Timeline -->
+        <div
+          class="position-relative ps-4 ps-md-5"
+          style="border-left: 2px solid var(--border-soft)"
+        >
+          <!-- Elementary -->
+          <div class="position-relative mb-4 fade-up">
+            <div
+              class="position-absolute d-flex align-items-center justify-content-center bg-surface border border-primary rounded-circle"
+              style="width: 36px; height: 36px; left: -54px; top: 4px"
+            >
+              <i class="bi bi-pencil text-gold" style="font-size: 0.85rem"></i>
+            </div>
+            <div class="card card-dark rounded-0 hover-lift">
+              <div class="card-body p-4">
+                <p class="text-gold text-uppercase small letter-space mb-2">
+                  Elementary
+                </p>
+                <h3 class="serif fs-4 mb-1">Elementary School</h3>
+                <p class="text-muted-custom small mb-2">
+                  Claro M. Recto Memorial Central School · Philippines
+                </p>
+                <p class="text-muted-custom small mb-0">
+                  Completed elementary education.
+                  <span class="text-muted-custom fst-italic"
+                    >(2018)</span
+                  >
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Junior High -->
+          <div class="position-relative mb-4 fade-up">
+            <div
+              class="position-absolute d-flex align-items-center justify-content-center bg-surface border border-primary rounded-circle"
+              style="width: 36px; height: 36px; left: -54px; top: 4px"
+            >
+              <i class="bi bi-book text-gold" style="font-size: 0.85rem"></i>
+            </div>
+            <div class="card card-dark rounded-0 hover-lift">
+              <div class="card-body p-4">
+                <p class="text-gold text-uppercase small letter-space mb-2">
+                  Junior High School
+                </p>
+                <h3 class="serif fs-4 mb-1">Junior High School</h3>
+                <p class="text-muted-custom small mb-2">
+                  Recto Memorial National High School · Philippines
+                </p>
+                <p class="text-muted-custom small mb-0">
+                  Completed junior high school.
+                  <span class="text-muted-custom fst-italic"
+                    >(2022)</span
+                  >
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Senior High -->
+          <div class="position-relative mb-4 fade-up">
+            <div
+              class="position-absolute d-flex align-items-center justify-content-center bg-surface border border-primary rounded-circle"
+              style="width: 36px; height: 36px; left: -54px; top: 4px"
+            >
+              <i
+                class="bi bi-journal-text text-gold"
+                style="font-size: 0.85rem"
+              ></i>
+            </div>
+            <div class="card card-dark rounded-0 hover-lift">
+              <div class="card-body p-4">
+                <p class="text-gold text-uppercase small letter-space mb-2">
+                  Senior High School
+                </p>
+                <h3 class="serif fs-4 mb-1">STEM - Academic Strand</h3>
+                <p class="text-muted-custom small mb-2">
+                  Recto Memorial National High School · Philippines
+                </p>
+                <p class="text-muted-custom small mb-0">
+                  Completed senior high school.
+                  <span class="text-muted-custom fst-italic"
+                    >(2024)</span
+                  >
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- College -->
+          <div class="position-relative fade-up">
+            <div
+              class="position-absolute d-flex align-items-center justify-content-center bg-surface border border-primary rounded-circle"
+              style="width: 36px; height: 36px; left: -54px; top: 4px"
+            >
+              <i
+                class="bi bi-mortarboard text-gold"
+                style="font-size: 0.85rem"
+              ></i>
+            </div>
+            <div class="card card-dark rounded-0 hover-lift">
+              <div class="card-body p-4">
+                <div class="d-flex align-items-center gap-2 mb-2">
+                  <p class="text-gold text-uppercase small letter-space mb-0">
+                    2024 — Present
+                  </p>
+                  <span
+                    class="badge rounded-0 text-bg-dark border border-soft text-gold"
+                    style="font-size: 0.65rem"
+                    >Current</span
+                  >
+                </div>
+                <h3 class="serif fs-4 mb-1">
+                  Bachelor of Science in Information Technology
+                </h3>
+                <p class="text-muted-custom small mb-2">
+                  Polytechnic University of the Philippines - Sto. Tomas Campus
+                </p>
+                <p class="text-muted-custom small mb-0">
+                  Studying web development, programming, database systems,
+                  networking, and software design principles.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- EXPERIENCE -->
+    <div id="experience" class="bg-surface py-5">
+      <div class="container py-5">
+        <div class="mb-5">
+          <p
+            class="text-gold text-uppercase small fw-semibold letter-space mb-2"
+          >
+            Experience
+          </p>
+          <h2 class="display-6 fw-bold">Leadership &amp; Activities</h2>
+        </div>
+
+        <div class="row g-4">
+
+
+
+
+
+
+          <div class="col-md-6 col-lg-4">
+            <div class="card card-dark rounded-0 h-100 hover-lift fade-up">
+              <div class="card-body p-4">
+                <div
+                  class="bg-surface-2 d-inline-flex align-items-center justify-content-center mb-3"
+                  style="width: 48px; height: 48px"
+                >
+                  <i class="bi bi-people text-gold fs-4"></i>
+                </div>
+                <p class="text-gold text-uppercase small letter-space mb-2">
+                  Start Up
+                </p>
+                <h3 class="serif fs-4 mb-1">DOST Cohort Incubation</h3>
+                <p class="text-muted-custom small mb-3">
+                  PUP-RISFI · 2026
+                </p>
+                <p class="text-muted-custom small mb-0">
+                  We developed and refined our startup idea through workshops, mentoring, market validation, and business model development, then presented our solution for feedback and possible commercialization.                  events. <span class="fst-italic">(Add details)</span>
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4">
+            <div class="card card-dark rounded-0 h-100 hover-lift fade-up">
+              <div class="card-body p-4">
+                <div
+                  class="bg-surface-2 d-inline-flex align-items-center justify-content-center mb-3"
+                  style="width: 48px; height: 48px"
+                >
+                  <i class="bi bi-trophy text-gold fs-4"></i>
+                </div>
+                <p class="text-gold text-uppercase small letter-space mb-2">
+                  Hackathon
+                </p>
+                <h3 class="serif fs-4 mb-1">
+                  ASEAN AI Hackathon 2026
+                </h3>
+                <p class="text-muted-custom small mb-3">P2A & AAIC · 2026</p>
+                <p class="text-muted-custom small mb-0">
+                  One of the teams to represent PUP. Paticipated in various workshops and seminars.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4">
+            <div class="card card-dark rounded-0 h-100 hover-lift fade-up">
+              <div class="card-body p-4">
+                <div
+                  class="bg-surface-2 d-inline-flex align-items-center justify-content-center mb-3"
+                  style="width: 48px; height: 48px"
+                >
+                  <i class="bi bi-trophy text-gold fs-4"></i>
+                </div>
+                <p class="text-gold text-uppercase small letter-space mb-2">
+                  Hackathon
+                </p>
+                <h3 class="serif fs-4 mb-1">
+                  PUP Hackathon: Uthack Ang Puhunan
+                </h3>
+                <p class="text-muted-custom small mb-3">PUP RISFI · 2025</p>
+                <p class="text-muted-custom small mb-0">
+                  Represented PUP-STC and participated on various seminars and activities. Our Team Devunix won 1st place on the competition.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4">
+            <div class="card card-dark rounded-0 h-100 hover-lift fade-up">
+              <div class="card-body p-4">
+                <div
+                  class="bg-surface-2 d-inline-flex align-items-center justify-content-center mb-3"
+                  style="width: 48px; height: 48px"
+                >
+                  <i class="bi bi-trophy text-gold fs-4"></i>
+                </div>
+                <p class="text-gold text-uppercase small letter-space mb-2">
+                  Capture the Flag
+                </p>
+                <h3 class="serif fs-4 mb-1">
+                  University Capture the Flag sponsored by Trend Micro
+                </h3>
+                <p class="text-muted-custom small mb-3">Trend Micro · 2025</p>
+                <p class="text-muted-custom small mb-0">
+                  Cybersecurity competition where students solve challenges involving cryptography, web security, digital forensics, and reverse engineering to uncover hidden flags. Our team was 84th place out of 199 teams.             </p>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="col-md-6 col-lg-4">
+            <div class="card card-dark rounded-0 h-100 hover-lift fade-up">
+              <div class="card-body p-4">
+                <div
+                  class="bg-surface-2 d-inline-flex align-items-center justify-content-center mb-3"
+                  style="width: 48px; height: 48px"
+                >
+                  <i class="bi bi-person-badge text-gold fs-4"></i>
+                </div>
+                <p class="text-gold text-uppercase small letter-space mb-2">
+                  Leadership
+                </p>
+                <h3 class="serif fs-4 mb-1">
+                  Media and Document Committee Head S.Y. 25-26
+                </h3>
+                <p class="text-muted-custom small mb-3">
+                  Computer Society · PUP-Sto.Tomas
+                </p>
+                <p class="text-muted-custom small mb-0">
+                  Led the media and documentation team in creating promotional content, covering events, and maintaining organized records.
+                </p>
+              </div>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+
+    <!-- CONTACT -->
+    <div id="contact" class="bg-surface py-5">
+      <div class="container py-5">
+        <div class="row g-5">
+          <div class="col-lg-4">
+            <p
+              class="text-gold text-uppercase small fw-semibold letter-space mb-2"
+            >
+              Contact
+            </p>
+            <h2 class="display-6 fw-bold mb-4">Get In Touch</h2>
+            <p class="text-muted-custom mb-4">
+              Open to internship opportunities, collaborations, or just a
+              friendly chat about web development.
+            </p>
+
+            <ul class="list-group list-group-flush">
+              <li
+                class="list-group-item bg-transparent text-muted-custom border-soft px-0"
+              >
+                <i class="bi bi-envelope text-gold me-2"></i
+                >guillianxjavier@gmail.com
+              </li>
+              <li
+                class="list-group-item bg-transparent text-muted-custom border-soft px-0"
+              >
+                <i class="bi bi-telephone text-gold me-2"></i>0977 770 9178
+              </li>
+              <li
+                class="list-group-item bg-transparent text-muted-custom border-soft px-0"
+              >
+                <i class="bi bi-geo-alt text-gold me-2"></i>Philippines
+              </li>
+            </ul>
+          </div>
+
+          <div class="col-lg-8">
+            <div class="card card-dark rounded-0 fade-up">
+              <div class="card-body p-4 p-md-5">
+                <form>
+                  <div class="row g-3">
+                    <div class="col-md-6">
+                      <label
+                        class="form-label text-muted-custom text-uppercase small letter-space"
+                        >Name</label
+                      >
+                      <input
+                        type="text"
+                        class="form-control rounded-0"
+                        placeholder="Your name"
+                      />
+                    </div>
+                    <div class="col-md-6">
+                      <label
+                        class="form-label text-muted-custom text-uppercase small letter-space"
+                        >Email</label
+                      >
+                      <input
+                        type="email"
+                        class="form-control rounded-0"
+                        placeholder="your@email.com"
+                      />
+                    </div>
+                    <div class="col-12">
+                      <label
+                        class="form-label text-muted-custom text-uppercase small letter-space"
+                        >Subject</label
+                      >
+                      <input
+                        type="text"
+                        class="form-control rounded-0"
+                        placeholder="What's this about?"
+                      />
+                    </div>
+                    <div class="col-12">
+                      <label
+                        class="form-label text-muted-custom text-uppercase small letter-space"
+                        >Message</label
+                      >
+                      <textarea
+                        class="form-control rounded-0"
+                        rows="5"
+                        placeholder="Your message..."
+                      ></textarea>
+                    </div>
+                    <div class="col-12">
+                      <a
+                        href="mailto:your.email@gmail.com"
+                        class="btn btn-gold rounded-0 w-100 py-3 small"
+                        >Send Message</a
+                      >
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="border-top border-soft py-4">
+      <div class="container">
+        <div class="row align-items-center gy-3 text-center text-md-start">
+          <div class="col-md-4">
+            <p class="serif text-muted-custom mb-0">
+              Guillian <span class="text-gold">Javier</span>
+            </p>
+          </div>
+          <div class="col-md-4 text-md-center">
+            <p class="text-muted-custom small mb-0">
+              © 2026 All Rights Reserved
+            </p>
+          </div>
+          <div class="col-md-4">
+            <div
+              class="d-flex justify-content-center justify-content-md-end gap-3 fs-5"
+            >
+              <a href="#" class="text-muted-custom"
+                ><i class="bi bi-github"></i
+              ></a>
+              <a href="#" class="text-muted-custom"
+                ><i class="bi bi-linkedin"></i
+              ></a>
+              <a href="#" class="text-muted-custom"
+                ><i class="bi bi-facebook"></i
+              ></a>
+              <a href="#" class="text-muted-custom"
+                ><i class="bi bi-instagram"></i
+              ></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) entry.target.classList.add("visible");
+          });
+        },
+        { threshold: 0.12 }
+      );
+
+      document
+        .querySelectorAll(".fade-up")
+        .forEach((el) => observer.observe(el));
+    </script>
+  </body>
+</html>
